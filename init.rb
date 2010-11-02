@@ -13,8 +13,8 @@ Redmine::Plugin.register :forward_to_diffs do
   menu :project_menu, '/', :caption => 'Yo'
   
   Redmine::MenuManager.map :project_menu do |menu|
-    menu.delete :wiki
     menu.delete :overview
-    menu.push :wiki, { :controller => 'wiki', :action => 'index', :page => nil }, :before => :activity
+    wiki = menu.delete :wiki
+    menu.push wiki.name, wiki.url, :param => wiki.param, :before => :activity
   end
 end
