@@ -10,8 +10,6 @@ Redmine::Plugin.register :forward_to_diffs do
 
   requires_redmine :version_or_higher => '0.8.0'
   
-  menu :project_menu, '/', :caption => 'Yo'
-  
   Redmine::MenuManager.map :project_menu do |menu|
     menu.delete :overview
     wiki = menu.delete :wiki
